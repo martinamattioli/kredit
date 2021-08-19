@@ -5,7 +5,7 @@ public class Organizacion {
     private String nombre;
 
     private Organizacion(){
-        this.nombre = null;
+        nombre = null;
     }
 
     public static Organizacion getInstance(){
