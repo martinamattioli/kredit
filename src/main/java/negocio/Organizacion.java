@@ -1,13 +1,16 @@
 package negocio;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Organizacion {
     private static Organizacion instance = null;
     private String nombre;
-    private Catalogo catalogo;
+    private List<Componente> catalogo;
 
     private Organizacion(){
         nombre = null;
-        catalogo = new Catalogo();
+        catalogo = new ArrayList<Componente>();
     }
 
     public static Organizacion getInstance(){
@@ -25,7 +28,11 @@ public class Organizacion {
         this.nombre = nombre;
     }
 
-    public Catalogo getCatalogo() {
-        return catalogo;
+    public void agregarProducto(Componente componente){
+        catalogo.add(componente);
+    }
+
+    public void removerProducto(Componente componente){
+        catalogo.remove(componente);
     }
 }
