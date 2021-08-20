@@ -11,7 +11,7 @@ public class Prestatario {
     private String nroDeDocumento;
     private Integer ingresoMensual;
     private SituacionLaboral situacionLaboral;
-    private List<Credito> creditos;
+    private List<Prestamo> prestamos;
     private List<SolicitudDeCredito> solicitudesDeCredito;
 
     public Prestatario(String nombreCompleto, String mail, String telefono, TipoDeDocumento tipoDeDocumento,
@@ -23,7 +23,7 @@ public class Prestatario {
         this.nroDeDocumento = nroDeDocumento;
         this.ingresoMensual = ingresoMensual;
         this.situacionLaboral = situacionLaboral;
-        this.creditos = new ArrayList<Credito>();
+        this.prestamos = new ArrayList<Prestamo>();
         this.solicitudesDeCredito = new ArrayList<SolicitudDeCredito>();
     }
 }
