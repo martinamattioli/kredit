@@ -1,5 +1,5 @@
 package negocio;
 
-abstract class EstadoCuota {
+abstract class EstadoPrestamo {
     abstract void modificarSaldoPendiente(Prestamo prestamo);
 }

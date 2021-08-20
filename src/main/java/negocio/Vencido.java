@@ -1,6 +1,6 @@
 package negocio;
 
-public class Vencida extends EstadoCuota{
+public class Vencido extends EstadoPrestamo {
 
     public void modificarSaldoPendiente(Prestamo prestamo) {
 
