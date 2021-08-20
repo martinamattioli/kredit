@@ -18,6 +18,11 @@ public class Pedido {
         this.fecha = fecha;
         this.componente = componente;
         this.tipoDeEnvio = tipoDeEnvio;
+        this.estadoPedido = new Confirmado(this);
+    }
+
+    public void setEstadoPedido(EstadoPedido estadoPedido) {
+        this.estadoPedido = estadoPedido;
     }
 
     public Integer calcularCosto() {
@@ -25,6 +30,10 @@ public class Pedido {
     }
 
     public void pagar(Integer dinero) {
+        estadoPedido.pagar(dinero);
+    }
 
+    public void entregar(){
+        estadoPedido.entregar();
     }
 }
