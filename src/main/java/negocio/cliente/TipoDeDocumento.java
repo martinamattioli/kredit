@@ -1,4 +1,4 @@
-package negocio;
+package negocio.cliente;
 
 public enum TipoDeDocumento {
     DNI,

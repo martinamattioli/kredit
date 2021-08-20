@@ -1,13 +1,13 @@
-package negocio;
+package negocio.componente;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Computadora extends Componente{
+public class Combo extends Componente {
     private List<Componente> componentes;
 
-    public Computadora(Integer precio, Integer anticipo, Foto foto, String caracteristicasGenerales) {
-        super(precio, anticipo, foto, caracteristicasGenerales);
+    public Combo(Integer precio, Integer anticipo, Foto foto, String caracteristicasGenerales) {
+        super(precio, anticipo, caracteristicasGenerales);
         componentes = new ArrayList<Componente>();
     }
 
