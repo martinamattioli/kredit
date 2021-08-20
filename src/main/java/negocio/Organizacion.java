@@ -1,5 +1,6 @@
 package negocio;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,5 +35,10 @@ public class Organizacion {
 
     public void removerProducto(Componente componente){
         catalogo.remove(componente);
+    }
+
+    public void generarPrestamo(Prestatario prestatario, Componente componente) {
+        if (prestatario.puedeSolicitarNuevoPrestamo())
+            prestatario.setPrestamo(new Prestamo(componente, LocalDate.now()));
     }
 }

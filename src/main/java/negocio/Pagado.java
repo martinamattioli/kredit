@@ -1,8 +1,18 @@
 package negocio;
 
-public class Pagado extends EstadoPrestamo {
+import java.time.LocalDate;
 
-    public void modificarSaldoPendiente(Prestamo prestamo) {
+public class Pagado extends EstadoPrestamo {
+    public Pagado(Prestamo prestamo) {
+        super(prestamo);
+    }
+
+    public void pagar(Integer dinero) {
 
     }
+
+    public void actualizarVencimiento(LocalDate fechaActual) {
+
+    }
+
 }

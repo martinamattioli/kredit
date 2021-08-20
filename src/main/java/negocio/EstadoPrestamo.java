@@ -1,5 +1,14 @@
 package negocio;
 
+import java.time.LocalDate;
+
 abstract class EstadoPrestamo {
-    abstract void modificarSaldoPendiente(Prestamo prestamo);
+    protected Prestamo prestamo;
+
+    public EstadoPrestamo(Prestamo prestamo) {
+        this.prestamo = prestamo;
+    }
+
+    abstract void pagar(Integer dinero);
+    abstract void actualizarVencimiento(LocalDate fechaActual);
 }

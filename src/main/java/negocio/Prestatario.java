@@ -11,9 +11,8 @@ public class Prestatario {
     private String nroDeDocumento;
     private Integer ingresoMensual;
     private SituacionLaboral situacionLaboral;
-    private List<Prestamo> prestamos;
-    private List<SolicitudDeCredito> solicitudesDeCredito;
-    private Boolean puedeSoicitarCredito;
+    private Prestamo prestamo
+    private EstadoPrestatario estado;
 
     public Prestatario(String nombreCompleto, String mail, String telefono, TipoDeDocumento tipoDeDocumento,
                        String nroDeDocumento, Integer ingresoMensual, SituacionLaboral situacionLaboral) {
@@ -24,11 +23,28 @@ public class Prestatario {
         this.nroDeDocumento = nroDeDocumento;
         this.ingresoMensual = ingresoMensual;
         this.situacionLaboral = situacionLaboral;
-        this.prestamos = new ArrayList<Prestamo>();
-        this.solicitudesDeCredito = new ArrayList<SolicitudDeCredito>();
+        this.prestamo = null;
+        this.estado = EstadoPrestatario.EN_REGLA;
     }
 
-    // solicitar credito ==> primero chequea puedeSoicitarCredito y desp genera la solicitud
-    // credito estado vencido ==> puedeSoicitarCredito=false
+    public EstadoPrestatario getEstado() {
+        return estado;
+    }
+
+    public void setEstado(EstadoPrestatario estado) {
+        this.estado = estado;
+    }
+
+    public void solicitarPrestamo(Organizacion organizacion, Componente componente){
+        organizacion.generarPrestamo(this, componente);
+    }
+
+    public void setPrestamo(Prestamo prestamo) {
+        this.prestamo = prestamo;
+    }
+
+    public Boolean puedeSolicitarNuevoPrestamo() {
+        return prestamo == null || prestamo.tieneSaldoPendiente();
+    }
 
 }
