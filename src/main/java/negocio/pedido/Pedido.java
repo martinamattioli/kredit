@@ -1,4 +1,4 @@
-package negocio.venta;
+package negocio.pedido;
 
 import negocio.cliente.Cliente;
 import negocio.componente.Componente;
@@ -6,13 +6,14 @@ import negocio.envio.TipoDeEnvio;
 
 import java.time.LocalDate;
 
-public class Venta {
+public class Pedido {
     private Cliente cliente;
     private LocalDate fecha;
     private Componente componente;
     private TipoDeEnvio tipoDeEnvio;
+    private EstadoPedido estadoPedido;
 
-    public Venta(Cliente cliente, LocalDate fecha, Componente componente, TipoDeEnvio tipoDeEnvio) {
+    public Pedido(Cliente cliente, LocalDate fecha, Componente componente, TipoDeEnvio tipoDeEnvio) {
         this.cliente = cliente;
         this.fecha = fecha;
         this.componente = componente;
@@ -21,5 +22,9 @@ public class Venta {
 
     public Integer calcularCosto() {
         return componente.getPrecio() + tipoDeEnvio.calcularCosto();
+    }
+
+    public void pagar(Integer dinero) {
+
     }
 }

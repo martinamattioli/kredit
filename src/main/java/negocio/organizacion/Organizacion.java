@@ -3,9 +3,8 @@ package negocio.organizacion;
 import negocio.cliente.Cliente;
 import negocio.cliente.TipoDeDocumento;
 import negocio.componente.Componente;
-import negocio.envio.Moto;
 import negocio.envio.TipoDeEnvio;
-import negocio.venta.Venta;
+import negocio.pedido.Pedido;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -16,12 +15,13 @@ public class Organizacion {
     private String nombre;
     private List<Componente> catalogo;
     private List<Cliente> clientes;
-    private List<Venta> ventas;
+    private List<Pedido> pedidos;
 
     private Organizacion(){
         nombre = null;
         catalogo = new ArrayList<Componente>();
         clientes = new ArrayList<Cliente>();
+        pedidos = new ArrayList<Pedido>()
     }
 
     public static Organizacion getInstance(){
@@ -56,8 +56,10 @@ public class Organizacion {
         this.agregarCliente(new Cliente(nombreCompleto, mail, telefono, tipoDeDocumento, nroDeDocumento));
     }
 
-    public void registrarVenta(Cliente cliente, Componente componente, TipoDeEnvio tipoDeEnvio){
-        ventas.add(new Venta(cliente, LocalDate.now(), componente, tipoDeEnvio));
+    public void registrarPedido(Cliente cliente, Componente componente, TipoDeEnvio tipoDeEnvio){
+        pedidos.add(new Pedido(cliente, LocalDate.now(), componente, tipoDeEnvio));
     }
+
+
 
 }
