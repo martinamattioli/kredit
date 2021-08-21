@@ -1,5 +1,7 @@
 package negocio.pedido;
 
+import negocio.cliente.TarjetaDeCredito;
+
 import java.io.IOException;
 
 public abstract class EstadoPedido {
@@ -10,10 +12,10 @@ public abstract class EstadoPedido {
         this.pedido = pedido;
     }
 
-    public abstract void pagar() throws MontoInsuficienteException, IOException, NoSePuedePagarException;
+    public abstract void pagar(TarjetaDeCredito tarjetaDeCredito, Integer costoAPagar) throws MontoInsuficienteException, IOException, NoSePuedePagarException;
 
     public abstract void entregar() throws IOException, NoSePuedeEntregarException;
 
-    public abstract void cancelar() throws IOException, NoSePuedeCancelarException;
+    public abstract void cancelar(TarjetaDeCredito tarjetaDeCredito, Integer montoADevolver) throws IOException, NoSePuedeCancelarException;
 
 }

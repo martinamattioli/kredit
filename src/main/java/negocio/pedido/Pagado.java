@@ -1,6 +1,6 @@
 package negocio.pedido;
 
-import negocio.cliente.Tarjeta;
+import negocio.cliente.TarjetaDeCredito;
 
 import java.io.IOException;
 
@@ -10,7 +10,7 @@ public class Pagado extends EstadoPedido {
         super(pedido);
     }
 
-    public void pagar() {
+    public void pagar(TarjetaDeCredito tarjetaDeCredito, Integer costoAPagar) {
 
     }
 
@@ -20,10 +20,8 @@ public class Pagado extends EstadoPedido {
     }
 
 
-    public void cancelar() throws IOException {
-        Tarjeta tarjeta = pedido.getTarjetaDelCliente();
-        Integer montoADevolver = pedido.calcularCosto();
-        tarjeta.sumarMonto(montoADevolver);
+    public void cancelar(TarjetaDeCredito tarjetaDeCredito, Integer montoADevolver) throws IOException {
+        tarjetaDeCredito.sumarMonto(montoADevolver);
         pedido.setEstadoPedido(new Cancelado(pedido));
         pedido.notificar("Pedido Cancelado","El pedido ha sido cancelado");
     }

@@ -1,6 +1,6 @@
 package negocio.cliente;
 
-public enum TipoDePago {
+public enum RedAsociada {
     VISA,
     MASTER_CARD,
     AMERICAN_EXPRESS

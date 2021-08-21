@@ -1,7 +1,6 @@
 package negocio.pedido;
 
 import negocio.cliente.Cliente;
-import negocio.cliente.Tarjeta;
 import negocio.cliente.Ubicacion;
 import negocio.componente.Componente;
 import negocio.envio.TipoDeEnvio;
@@ -44,7 +43,7 @@ public class Pedido {
     }
 
     public void pagar() throws MontoInsuficienteException, IOException, NoSePuedePagarException {
-        estadoPedido.pagar();
+        estadoPedido.pagar(cliente.getTarjetaDeCredito(), this.calcularCosto());
     }
 
     public Ubicacion ubicacionDeEnvio() { return cliente.getUbicacion(); }
@@ -54,14 +53,11 @@ public class Pedido {
     }
 
     public void cancelar() throws IOException, NoSePuedeCancelarException {
-        estadoPedido.cancelar();
+        estadoPedido.cancelar(cliente.getTarjetaDeCredito(), this.calcularCosto());
     }
 
     public void notificar(String asunto, String mensaje) throws IOException {
         notificador.notificar(cliente.getMail(), asunto, mensaje);
     }
 
-    public Tarjeta getTarjetaDelCliente() {
-        return cliente.getTarjeta();
-    }
 }

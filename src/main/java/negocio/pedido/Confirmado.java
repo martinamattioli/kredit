@@ -1,6 +1,6 @@
 package negocio.pedido;
 
-import negocio.cliente.Tarjeta;
+import negocio.cliente.TarjetaDeCredito;
 
 import java.io.IOException;
 
@@ -10,11 +10,10 @@ public class Confirmado extends EstadoPedido {
         super(pedido);
     }
 
-    public void pagar() throws MontoInsuficienteException, IOException {
-        Tarjeta tarjeta = pedido.getTarjetaDelCliente();
-        Integer costoAPagar = pedido.calcularCosto();
-        if (tarjeta.tieneMontoSuficiente(costoAPagar)) {
-            tarjeta.restarMonto(costoAPagar);
+    public void pagar(TarjetaDeCredito tarjetaDeCredito, Integer costoAPagar)
+            throws MontoInsuficienteException, IOException {
+        if (tarjetaDeCredito.tieneMontoSuficiente(costoAPagar)) {
+            tarjetaDeCredito.restarMonto(costoAPagar);
             pedido.setEstadoPedido(new Pagado(pedido));
             pedido.notificar("Pedido Pagado", "El pedido ha sido pagado.");
         } else throw new MontoInsuficienteException();
@@ -24,7 +23,7 @@ public class Confirmado extends EstadoPedido {
         throw new NoSePuedeEntregarException();
     }
 
-    public void cancelar() throws IOException {
+    public void cancelar(TarjetaDeCredito tarjetaDeCredito, Integer montoADevolver) throws IOException {
         pedido.setEstadoPedido(new Cancelado(pedido));
         pedido.notificar("Pedido Cancelado", "El pedido ha sido cancelado.");
     }

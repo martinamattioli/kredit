@@ -13,10 +13,10 @@ public class Cliente {
     private TipoDeDocumento tipoDeDocumento;
     private String nroDeDocumento;
     private String direccion;
-    private Tarjeta tarjeta;
+    private TarjetaDeCredito tarjeta;
     private Ubicacion ubicacion;
 
-    public Cliente(String nombreCompleto, String mail, TipoDeDocumento tipoDeDocumento, String nroDeDocumento, String direccion, Tarjeta tarjeta,Ubicacion ubicacion) {
+    public Cliente(String nombreCompleto, String mail, TipoDeDocumento tipoDeDocumento, String nroDeDocumento, String direccion, TarjetaDeCredito tarjeta, Ubicacion ubicacion) {
         this.nombreCompleto = nombreCompleto;
         this.mail = mail;
         this.tipoDeDocumento = tipoDeDocumento;
@@ -26,7 +26,7 @@ public class Cliente {
         this.ubicacion = ubicacion;
     }
 
-    public Tarjeta getTarjeta() {
+    public TarjetaDeCredito getTarjetaDeCredito() {
         return tarjeta;
     }
 

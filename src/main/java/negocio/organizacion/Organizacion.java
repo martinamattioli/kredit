@@ -1,7 +1,7 @@
 package negocio.organizacion;
 
 import negocio.cliente.Cliente;
-import negocio.cliente.Tarjeta;
+import negocio.cliente.TarjetaDeCredito;
 import negocio.cliente.TipoDeDocumento;
 import negocio.cliente.Ubicacion;
 import negocio.componente.Componente;
@@ -70,7 +70,7 @@ public class Organizacion {
     }
 
     public void registrarCliente(String nombreCompleto, String mail, TipoDeDocumento tipoDeDocumento,
-                                 String nroDeDocumento, String direccion, Tarjeta tarjetaDeCredito,
+                                 String nroDeDocumento, String direccion, TarjetaDeCredito tarjetaDeCredito,
                                  Ubicacion ubicacion){
         this.agregarCliente(new Cliente(nombreCompleto, mail, tipoDeDocumento,
                 nroDeDocumento, direccion, tarjetaDeCredito,ubicacion));
