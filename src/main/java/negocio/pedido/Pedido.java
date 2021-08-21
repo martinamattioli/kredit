@@ -25,6 +25,8 @@ public class Pedido {
         this.notificador = new Notificador();
     }
 
+    // INICIO - GETTER & SETTER
+
     public Cliente getCliente() {
         return cliente;
     }
@@ -32,6 +34,8 @@ public class Pedido {
     public void setEstadoPedido(EstadoPedido estadoPedido) {
         this.estadoPedido = estadoPedido;
     }
+
+    // FIN - GETTER & SETTER
 
     public Integer calcularCosto() {
         return componente.getPrecio() + tipoDeEnvio.calcularCosto();
