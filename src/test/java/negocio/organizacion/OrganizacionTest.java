@@ -15,10 +15,18 @@ import org.junit.Test;
 public class OrganizacionTest {
 
     static Organizacion organizacion;
+    static Producto celular;
+    static Producto televisor;
 
     @BeforeClass
     public static void init(){
         organizacion = Organizacion.getInstance();
+        televisor = new Producto("Lg 55 4k", "Televisor", 300,
+                new Foto(), 10);
+        celular = new Producto("Samsung S21", "Celular de alta gama", 100,
+                new Foto(), 4);
+        organizacion.agregarAlCatalogo(televisor);
+        organizacion.agregarAlCatalogo(celular);
     }
 
     @Test
@@ -34,13 +42,6 @@ public class OrganizacionTest {
     }
 
     @Test
-    public void testAgregarUnProductoLoAgregaAlCatalogo(){
-        Producto producto = new Producto("Producto Test", "Test", 200, new Foto(), 10);
-        organizacion.agregarProducto(producto);
-        Assert.assertEquals(1, organizacion.getCatalogo().size());
-    }
-
-    @Test
     public void testRegistrarUnPedidoLoAgregaCorrectamenteALaOrganizacion(){
         Cliente cliente = new Cliente("Lionel Messi", "test@dds.com", TipoDeDocumento.DNI, "12345678", "Calle 123", null, Ubicacion.GRAN_BSAS);
         Componente componente = new Producto("Producto Test", "Test", 200, new Foto(), 5);
@@ -49,4 +50,18 @@ public class OrganizacionTest {
         Assert.assertEquals(1, organizacion.getPedidos().size());
     }
 
+    @Test
+    public void testDadoUnNombreSeRealizaLaBusquedaCorrectamenteEnElCatalogo(){
+        Assert.assertEquals(celular, organizacion.buscarEnElCatalogoPorNombre("Samsung S21"));
+    }
+
+    @Test
+    public void testAlFiltrarDelCatalogoPorPrecioMenorOIgualObtengoUnaListaDeUnProducto(){
+        Assert.assertEquals(1, organizacion.filtrarDelCatalogoPorPrecioMenorOIgual(150).size());
+    }
+
+    @Test
+    public void testAlFiltrarDelCatalogoPorPrecioMayorOIgualObtengoUnaListaDeDosProducto(){
+        Assert.assertEquals(2, organizacion.filtrarDelCatalogoPorPrecioMayorOIgual(100).size());
+    }
 }

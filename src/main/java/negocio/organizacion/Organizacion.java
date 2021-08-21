@@ -1,5 +1,6 @@
 package negocio.organizacion;
 
+import negocio.catalogo.Catalogo;
 import negocio.cliente.Cliente;
 import negocio.cliente.TarjetaDeCredito;
 import negocio.cliente.TipoDeDocumento;
@@ -15,13 +16,13 @@ import java.util.List;
 public class Organizacion {
     private static Organizacion instance = null;
     private String nombre;
-    private List<Componente> catalogo;
+    private Catalogo catalogo;
     private List<Cliente> clientes;
     private List<Pedido> pedidos;
 
     private Organizacion(){
         nombre = null;
-        catalogo = new ArrayList<Componente>();
+        catalogo = new Catalogo();
         clientes = new ArrayList<Cliente>();
         pedidos = new ArrayList<Pedido>();
     }
@@ -35,7 +36,7 @@ public class Organizacion {
 
     // INICIO - GETTER & SETTER
 
-    public List<Componente> getCatalogo() {
+    public Catalogo getCatalogo() {
         return catalogo;
     }
 
@@ -57,12 +58,12 @@ public class Organizacion {
 
     // FIN - GETTER & SETTER
 
-    public void agregarProducto(Componente componente){
-        catalogo.add(componente);
+    public void agregarAlCatalogo(Componente componente){
+        catalogo.agregar(componente);
     }
 
-    public void removerProducto(Componente componente){
-        catalogo.remove(componente);
+    public void removerDelCatalogo(Componente componente){
+        catalogo.remover(componente);
     }
 
     public void agregarCliente(Cliente cliente){
@@ -78,6 +79,18 @@ public class Organizacion {
 
     public void registrarPedido(Cliente cliente, Componente componente, TipoDeEnvio tipoDeEnvio){
         pedidos.add(new Pedido(cliente, LocalDate.now(), componente, tipoDeEnvio));
+    }
+
+    public Componente buscarEnElCatalogoPorNombre(String nombre){
+        return catalogo.buscarPorNombre(nombre);
+    }
+
+    public ArrayList<Componente> filtrarDelCatalogoPorPrecioMayorOIgual(Integer precio){
+        return catalogo.filtrarComponentesConPrecioMayorOIgual(precio);
+    }
+
+    public ArrayList<Componente> filtrarDelCatalogoPorPrecioMenorOIgual(Integer precio){
+        return catalogo.filtrarComponentesConPrecioMenorOIgual(precio);
     }
 
 }
