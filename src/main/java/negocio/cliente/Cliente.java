@@ -26,6 +26,8 @@ public class Cliente {
         return mail;
     }
 
+    public Ubicacion getUbicacion() { return ubicacion; }
+
     public void pagar(Pedido pedido, Integer dinero) throws DineroInsuficienteException, IOException, NoSePuedePagarException {
         pedido.pagar(dinero);
     }
