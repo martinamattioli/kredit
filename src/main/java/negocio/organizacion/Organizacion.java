@@ -51,9 +51,9 @@ public class Organizacion {
         clientes.add(cliente);
     }
 
-    public void registrarCliente(String nombreCompleto, String mail, String telefono, TipoDeDocumento tipoDeDocumento,
+    public void registrarCliente(String nombreCompleto, String mail, TipoDeDocumento tipoDeDocumento,
                                  String nroDeDocumento){
-        this.agregarCliente(new Cliente(nombreCompleto, mail, telefono, tipoDeDocumento, nroDeDocumento));
+        this.agregarCliente(new Cliente(nombreCompleto, mail, tipoDeDocumento, nroDeDocumento));
     }
 
     public void registrarPedido(Cliente cliente, Componente componente, TipoDeEnvio tipoDeEnvio){
