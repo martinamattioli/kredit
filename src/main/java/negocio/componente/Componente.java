@@ -9,5 +9,7 @@ public abstract class Componente {
 
     public abstract Integer getPrecio();
 
+    public abstract Integer getPeso();
+
     public String getCaracteristicasGenerales() { return caracteristicasGenerales; }
 }

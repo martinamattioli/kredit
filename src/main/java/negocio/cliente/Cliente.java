@@ -13,18 +13,22 @@ public class Cliente {
     private TipoDeDocumento tipoDeDocumento;
     private String nroDeDocumento;
     private String direccion;
+    private Ubicacion ubicacion;
 
-    public Cliente(String nombreCompleto, String mail, TipoDeDocumento tipoDeDocumento, String nroDeDocumento, String direccion) {
+    public Cliente(String nombreCompleto, String mail, TipoDeDocumento tipoDeDocumento, String nroDeDocumento, String direccion, Ubicacion ubicacion) {
         this.nombreCompleto = nombreCompleto;
         this.mail = mail;
         this.tipoDeDocumento = tipoDeDocumento;
         this.nroDeDocumento = nroDeDocumento;
         this.direccion = direccion;
+        this.ubicacion = ubicacion;
     }
 
     public String getMail() {
         return mail;
     }
+
+    public Ubicacion getUbicacion() { return ubicacion; }
 
     public void pagar(Pedido pedido, Integer dinero) throws DineroInsuficienteException, IOException, NoSePuedePagarException {
         pedido.pagar(dinero);
@@ -33,6 +37,4 @@ public class Cliente {
     public void cancelarPedido(Pedido pedido) throws IOException, NoSePuedeCancelarException {
         pedido.cancelar();
     }
-
-
 }

@@ -1,6 +1,7 @@
 package negocio.pedido;
 
 import negocio.cliente.Cliente;
+import negocio.cliente.Ubicacion;
 import negocio.componente.Componente;
 import negocio.envio.TipoDeEnvio;
 import negocio.notificador.Notificador;
@@ -38,8 +39,10 @@ public class Pedido {
     // FIN - GETTER & SETTER
 
     public Integer calcularCosto() {
-        return componente.getPrecio() + tipoDeEnvio.calcularCosto();
+        return componente.getPrecio() + tipoDeEnvio.calcularCosto(this.componente.getPeso(), this.ubicacionDeEnvio());
     }
+
+    public Ubicacion ubicacionDeEnvio() { return cliente.getUbicacion(); }
 
     public void pagar(Integer dinero) throws DineroInsuficienteException, IOException, NoSePuedePagarException {
         estadoPedido.pagar(dinero);
