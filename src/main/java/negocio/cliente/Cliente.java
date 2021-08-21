@@ -13,6 +13,7 @@ public class Cliente {
     private TipoDeDocumento tipoDeDocumento;
     private String nroDeDocumento;
     private String direccion;
+    private Tarjeta tarjeta;
 
     public Cliente(String nombreCompleto, String mail, TipoDeDocumento tipoDeDocumento, String nroDeDocumento, String direccion) {
         this.nombreCompleto = nombreCompleto;
