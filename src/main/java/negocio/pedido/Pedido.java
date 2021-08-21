@@ -39,7 +39,7 @@ public class Pedido {
     // FIN - GETTER & SETTER
 
     public Integer calcularCosto() {
-        return componente.getPrecio() + tipoDeEnvio.calcularCosto(this.componente, this.ubicacionDeEnvio());
+        return componente.getPrecio() + tipoDeEnvio.calcularCosto(this.componente.getPeso(), this.ubicacionDeEnvio());
     }
 
     public Ubicacion ubicacionDeEnvio() { return cliente.getUbicacion(); }

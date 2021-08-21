@@ -1,11 +1,10 @@
 package negocio.envio;
 
 import negocio.cliente.Ubicacion;
-import negocio.componente.Componente;
 
 public class Correo implements TipoDeEnvio{
 
-    public Integer calcularCosto(Componente componente, Ubicacion ubicacion) {
+    public Integer calcularCosto(Integer peso, Ubicacion ubicacion) {
         Integer costo;
         switch (ubicacion){
             case CABA: costo = 100;
