@@ -2,14 +2,12 @@ package negocio.componente;
 
 public class Producto extends Componente {
     private Integer precio;
-    private String modelo;
     private Foto foto;
     private Integer peso;
 
-    public Producto(String caracteristicasGenerales, Integer precio, Foto foto, String modelo, Integer peso) {
-        super(caracteristicasGenerales);
+    public Producto(String nombre, String caracteristicasGenerales, Integer precio, Foto foto, Integer peso) {
+        super(nombre, caracteristicasGenerales);
         this.foto = foto;
-        this.modelo = modelo;
         this.precio = precio;
         this.peso = peso;
     }
@@ -18,10 +16,6 @@ public class Producto extends Componente {
 
     public Integer getPrecio() {
         return precio;
-    }
-
-    public String getModelo() {
-        return modelo;
     }
 
     public Integer getPeso() { return peso; }

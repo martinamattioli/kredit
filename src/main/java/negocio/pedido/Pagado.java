@@ -1,6 +1,6 @@
 package negocio.pedido;
 
-import negocio.notificador.Notificador;
+import negocio.cliente.Tarjeta;
 
 import java.io.IOException;
 
@@ -10,7 +10,7 @@ public class Pagado extends EstadoPedido {
         super(pedido);
     }
 
-    public void pagar(Integer dinero) {
+    public void pagar() {
 
     }
 
@@ -21,6 +21,9 @@ public class Pagado extends EstadoPedido {
 
 
     public void cancelar() throws IOException {
+        Tarjeta tarjeta = pedido.getTarjetaDelCliente();
+        Integer montoADevolver = pedido.calcularCosto();
+        tarjeta.sumarMonto(montoADevolver);
         pedido.setEstadoPedido(new Cancelado(pedido));
         pedido.notificar("Pedido Cancelado","El pedido ha sido cancelado");
     }

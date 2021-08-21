@@ -29,21 +29,21 @@ public class OrganizacionTest {
 
     @Test
     public void testRegistrarUnClienteLoAgregaCorrectamenteALaOrganizacion(){
-        organizacion.registrarCliente("Lionel Messi", "test@dds.com", TipoDeDocumento.DNI, "12345678", "Calle 234", Ubicacion.CABA);
+        organizacion.registrarCliente("Lionel Messi", "test@dds.com", TipoDeDocumento.DNI, "12345678", "Calle 234", null, Ubicacion.CABA);
         Assert.assertEquals(1, organizacion.getClientes().size());
     }
 
     @Test
     public void testAgregarUnProductoLoAgregaAlCatalogo(){
-        Producto producto = new Producto("Producto Test", 200, new Foto(), "Test", 10);
+        Producto producto = new Producto("Producto Test", "Test", 200, new Foto(), 10);
         organizacion.agregarProducto(producto);
         Assert.assertEquals(1, organizacion.getCatalogo().size());
     }
 
     @Test
     public void testRegistrarUnPedidoLoAgregaCorrectamenteALaOrganizacion(){
-        Cliente cliente = new Cliente("Lionel Messi", "test@dds.com", TipoDeDocumento.DNI, "12345678", "Calle 123", Ubicacion.GRAN_BSAS);
-        Componente componente = new Producto("Producto Test", 200, new Foto(), "Test", 5);
+        Cliente cliente = new Cliente("Lionel Messi", "test@dds.com", TipoDeDocumento.DNI, "12345678", "Calle 123", null, Ubicacion.GRAN_BSAS);
+        Componente componente = new Producto("Producto Test", "Test", 200, new Foto(), 5);
         TipoDeEnvio tipoDeEnvio = new Moto();
         organizacion.registrarPedido(cliente, componente, tipoDeEnvio);
         Assert.assertEquals(1, organizacion.getPedidos().size());

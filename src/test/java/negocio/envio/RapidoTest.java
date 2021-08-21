@@ -12,7 +12,7 @@ public class RapidoTest {
     @Test
     public void testCalcularCostoEsIgualA10000(){
         Rapido rapido = new Rapido();
-        Componente componente = new Producto("Unas caracteristicas", 200, new Foto(), "Modelo 123", 123);
+        Componente componente = new Producto("Modelo 123", "Unas caracteristicas", 200, new Foto(), 123);
         Assert.assertEquals(10000, rapido.calcularCosto(componente.getPeso(), Ubicacion.INTERIOR).intValue());
     }
 }
