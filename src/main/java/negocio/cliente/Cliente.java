@@ -12,12 +12,14 @@ public class Cliente {
     private String mail;
     private TipoDeDocumento tipoDeDocumento;
     private String nroDeDocumento;
+    private String direccion;
 
-    public Cliente(String nombreCompleto, String mail, TipoDeDocumento tipoDeDocumento, String nroDeDocumento) {
+    public Cliente(String nombreCompleto, String mail, TipoDeDocumento tipoDeDocumento, String nroDeDocumento, String direccion) {
         this.nombreCompleto = nombreCompleto;
         this.mail = mail;
         this.tipoDeDocumento = tipoDeDocumento;
         this.nroDeDocumento = nroDeDocumento;
+        this.direccion = direccion;
     }
 
     public String getMail() {

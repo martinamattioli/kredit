@@ -28,7 +28,7 @@ public class OrganizacionTest {
 
     @Test
     public void testRegistrarUnClienteLoAgregaCorrectamenteALaOrganizacion(){
-        organizacion.registrarCliente("Lionel Messi", "test@dds.com", TipoDeDocumento.DNI, "12345678");
+        organizacion.registrarCliente("Lionel Messi", "test@dds.com", TipoDeDocumento.DNI, "12345678", "Calle 234");
         Assert.assertEquals(1, organizacion.getClientes().size());
     }
 
@@ -41,7 +41,7 @@ public class OrganizacionTest {
 
     @Test
     public void testRegistrarUnPedidoLoAgregaCorrectamenteALaOrganizacion(){
-        Cliente cliente = new Cliente("Lionel Messi", "test@dds.com", TipoDeDocumento.DNI, "12345678");
+        Cliente cliente = new Cliente("Lionel Messi", "test@dds.com", TipoDeDocumento.DNI, "12345678", "Calle 123");
         Componente componente = new Producto("Producto Test", 200, new Foto(), "Test", 5.6);
         TipoDeEnvio tipoDeEnvio = new Moto();
         organizacion.registrarPedido(cliente, componente, tipoDeEnvio);
