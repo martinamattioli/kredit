@@ -39,8 +39,10 @@ public class Pedido {
     // FIN - GETTER & SETTER
 
     public Integer calcularCosto() {
-        return componente.getPrecio() + tipoDeEnvio.calcularCosto(this.componente.getPeso(), this.ubicacionDeEnvio());
+        return componente.getPrecio() + tipoDeEnvio.calcularCosto(this.peso(), this.ubicacionDeEnvio());
     }
+
+    public Integer peso() { return this.componente.getPeso(); }
 
     public void pagar() throws MontoInsuficienteException, IOException, NoSePuedePagarException {
         estadoPedido.pagar(cliente.getTarjetaDeCredito(), this.calcularCosto());
