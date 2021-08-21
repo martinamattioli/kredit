@@ -9,11 +9,26 @@ import org.junit.Test;
 
 
 public class CorreoTest {
+
     @Test
-    public void testCalcularCostoEsIgualA100(){
-       Componente componente = new Producto("Unas caracteristicas", 200, new Foto(), "Modelo 123", 123);
-       Correo correo = new Correo();
-       Assert.assertEquals(200,correo.calcularCosto(componente, Ubicacion.GRAN_BSAS).intValue());
+    public void testCalcularCostoEsIgualA100SiLaUbicacionDestinoEsCABA(){
+        Componente componente = new Producto("Unas caracteristicas", 200, new Foto(), "Modelo 123", 123);
+        Correo correo = new Correo();
+        Assert.assertEquals(100,correo.calcularCosto(componente, Ubicacion.CABA).intValue());
+    }
+
+    @Test
+    public void testCalcularCostoEsIgualA200SiLaUbicacionDestinoEsGranBSAS(){
+        Componente componente = new Producto("Unas caracteristicas", 200, new Foto(), "Modelo 123", 123);
+        Correo correo = new Correo();
+        Assert.assertEquals(200,correo.calcularCosto(componente, Ubicacion.GRAN_BSAS).intValue());
+    }
+
+    @Test
+    public void testCalcularCostoEsIgualA2000SiLaUbicacionDestinoEsElInterior(){
+        Componente componente = new Producto("Unas caracteristicas", 200, new Foto(), "Modelo 123", 123);
+        Correo correo = new Correo();
+        Assert.assertEquals(2000,correo.calcularCosto(componente, Ubicacion.INTERIOR).intValue());
     }
 
 }
