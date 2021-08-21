@@ -6,16 +6,16 @@ public class Entregado extends EstadoPedido {
         super(pedido);
     }
 
-    public void pagar(Integer dinero) {
-
+    public void pagar(Integer dinero) throws NoSePuedePagarException {
+        throw new NoSePuedePagarException();
     }
 
-    public void entregar() {
-
+    public void entregar() throws NoSePuedeEntregarException {
+        throw new NoSePuedeEntregarException();
     }
 
-    public void cancelar() {
-
+    public void cancelar() throws NoSePuedeCancelarException {
+        throw new NoSePuedeCancelarException();
     }
 
 }

@@ -1,30 +1,36 @@
 package negocio.cliente;
 
 import negocio.pedido.DineroInsuficienteException;
+import negocio.pedido.NoSePuedeCancelarException;
+import negocio.pedido.NoSePuedePagarException;
 import negocio.pedido.Pedido;
+
+import java.io.IOException;
 
 public class Cliente {
     private String nombreCompleto;
     private String mail;
-    private String telefono;
     private TipoDeDocumento tipoDeDocumento;
     private String nroDeDocumento;
 
-    public Cliente(String nombreCompleto, String mail, String telefono, TipoDeDocumento tipoDeDocumento,
-                   String nroDeDocumento) {
+    public Cliente(String nombreCompleto, String mail, TipoDeDocumento tipoDeDocumento, String nroDeDocumento) {
         this.nombreCompleto = nombreCompleto;
         this.mail = mail;
-        this.telefono = telefono;
         this.tipoDeDocumento = tipoDeDocumento;
         this.nroDeDocumento = nroDeDocumento;
     }
 
-    public void pagar(Pedido pedido, Integer dinero) throws DineroInsuficienteException {
+    public String getMail() {
+        return mail;
+    }
+
+    public void pagar(Pedido pedido, Integer dinero) throws DineroInsuficienteException, IOException, NoSePuedePagarException {
         pedido.pagar(dinero);
     }
 
-    public void cancelarPedido(Pedido pedido){
+    public void cancelarPedido(Pedido pedido) throws IOException, NoSePuedeCancelarException {
         pedido.cancelar();
     }
+
 
 }
