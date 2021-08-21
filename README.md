@@ -1,4 +1,4 @@
-# kredit - Primer Parcial - DDS - 2021
+# TechBuy - Primer Parcial - DDS - 2021
 
 ### Integrantes
 * Martina Mattioli (170.510-6)
