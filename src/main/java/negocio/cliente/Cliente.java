@@ -12,12 +12,14 @@ public class Cliente {
     private String mail;
     private TipoDeDocumento tipoDeDocumento;
     private String nroDeDocumento;
+    private Ubicacion ubicacion;
 
-    public Cliente(String nombreCompleto, String mail, TipoDeDocumento tipoDeDocumento, String nroDeDocumento) {
+    public Cliente(String nombreCompleto, String mail, TipoDeDocumento tipoDeDocumento, String nroDeDocumento, Ubicacion ubicacion) {
         this.nombreCompleto = nombreCompleto;
         this.mail = mail;
         this.tipoDeDocumento = tipoDeDocumento;
         this.nroDeDocumento = nroDeDocumento;
+        this.ubicacion = ubicacion;
     }
 
     public String getMail() {
@@ -31,6 +33,4 @@ public class Cliente {
     public void cancelarPedido(Pedido pedido) throws IOException, NoSePuedeCancelarException {
         pedido.cancelar();
     }
-
-
 }
