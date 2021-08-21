@@ -1,14 +1,11 @@
 package negocio.componente;
 
-import negocio.componente.Componente;
-import negocio.componente.Foto;
-
 public class Producto extends Componente {
     private Integer precio;
     private Foto foto;
-    private Double peso;
+    private Integer peso;
 
-    public Producto(String nombre, String caracteristicasGenerales, Integer precio, Foto foto, Double peso) {
+    public Producto(String nombre, String caracteristicasGenerales, Integer precio, Foto foto, Integer peso) {
         super(nombre, caracteristicasGenerales);
         this.foto = foto;
         this.precio = precio;
@@ -21,7 +18,7 @@ public class Producto extends Componente {
         return precio;
     }
 
-    public Double getPeso() { return peso; }
+    public Integer getPeso() { return peso; }
 
     // FIN - GETTER & SETTER
 }

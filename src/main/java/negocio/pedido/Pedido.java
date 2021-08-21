@@ -2,6 +2,7 @@ package negocio.pedido;
 
 import negocio.cliente.Cliente;
 import negocio.cliente.Tarjeta;
+import negocio.cliente.Ubicacion;
 import negocio.componente.Componente;
 import negocio.envio.TipoDeEnvio;
 import negocio.notificador.Notificador;
@@ -39,12 +40,14 @@ public class Pedido {
     // FIN - GETTER & SETTER
 
     public Integer calcularCosto() {
-        return componente.getPrecio() + tipoDeEnvio.calcularCosto();
+        return componente.getPrecio() + tipoDeEnvio.calcularCosto(this.componente.getPeso(), this.ubicacionDeEnvio());
     }
 
     public void pagar() throws MontoInsuficienteException, IOException, NoSePuedePagarException {
         estadoPedido.pagar();
     }
+
+    public Ubicacion ubicacionDeEnvio() { return cliente.getUbicacion(); }
 
     public void entregar() throws IOException, NoSePuedeEntregarException {
         estadoPedido.entregar();

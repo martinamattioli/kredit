@@ -26,4 +26,8 @@ public class Combo extends Componente {
     public Integer getPrecio() {
         return componentes.stream().mapToInt(Componente::getPrecio).sum();
     }
+
+    public Integer getPeso() {
+        return componentes.stream().mapToInt(Componente::getPeso).sum();
+    }
 }

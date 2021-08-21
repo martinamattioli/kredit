@@ -14,14 +14,16 @@ public class Cliente {
     private String nroDeDocumento;
     private String direccion;
     private Tarjeta tarjeta;
+    private Ubicacion ubicacion;
 
-    public Cliente(String nombreCompleto, String mail, TipoDeDocumento tipoDeDocumento, String nroDeDocumento, String direccion, Tarjeta tarjeta) {
+    public Cliente(String nombreCompleto, String mail, TipoDeDocumento tipoDeDocumento, String nroDeDocumento, String direccion, Tarjeta tarjeta,Ubicacion ubicacion) {
         this.nombreCompleto = nombreCompleto;
         this.mail = mail;
         this.tipoDeDocumento = tipoDeDocumento;
         this.nroDeDocumento = nroDeDocumento;
         this.direccion = direccion;
         this.tarjeta = tarjeta;
+        this.ubicacion = ubicacion;
     }
 
     public Tarjeta getTarjeta() {
@@ -36,9 +38,9 @@ public class Cliente {
         pedido.pagar();
     }
 
+    public Ubicacion getUbicacion() { return ubicacion; }
+
     public void cancelarPedido(Pedido pedido) throws IOException, NoSePuedeCancelarException {
         pedido.cancelar();
     }
-
-
 }
