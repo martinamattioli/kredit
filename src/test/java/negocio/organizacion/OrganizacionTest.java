@@ -37,7 +37,7 @@ public class OrganizacionTest {
     public void testAgregarUnProductoLoAgregaAlCatalogo(){
         Producto producto = new Producto("Producto Test", "Test", 200, new Foto(), 10);
         organizacion.agregarAlCatalogo(producto);
-        Assert.assertEquals(1, organizacion.getCatalogo().obtenerTamaño().intValue());
+        Assert.assertEquals(1, organizacion.getCatalogo().obtenerCantidadDeComponentes().intValue());
     }
 
     @Test
