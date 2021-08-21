@@ -6,6 +6,6 @@ import negocio.componente.Componente;
 public class Rapido implements TipoDeEnvio{
 
     public Integer calcularCosto(Componente componente, Ubicacion ubicacion) {
-        return 200;
+        return 10000;
     }
 }
