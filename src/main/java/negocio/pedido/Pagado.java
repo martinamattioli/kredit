@@ -10,7 +10,7 @@ public class Pagado extends EstadoPedido {
         super(pedido);
     }
 
-    public void pagar(TarjetaDeCredito tarjetaDeCredito, Integer montoAPagar) {
+    public void pagar(TarjetaDeCredito tarjetaDeCredito, Integer monto) {
 
     }
 
