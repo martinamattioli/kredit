@@ -14,13 +14,13 @@ public class Notificador {
     private static String FROM_EMAIL = "techbuydds@gmail.com";
     private static String API_KEY = "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";
 
-    public void notificar(String email, String subject, String mensaje) throws IOException {
-        Email from = new Email(FROM_EMAIL);
-        Email to = new Email(email);
+    public void notificar(String email, String asunto, String mensaje) throws IOException {
+        Email desde = new Email(FROM_EMAIL);
+        Email para = new Email(email);
 
-        Content content = new Content("text/plain", mensaje);
+        Content contenido = new Content("text/plain", mensaje);
 
-        Mail mail = new Mail(from, subject, to, content);
+        Mail mail = new Mail(desde, asunto, para, contenido);
 
         SendGrid sg = new SendGrid(API_KEY);
         Request request = new Request();
