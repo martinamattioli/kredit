@@ -8,7 +8,7 @@ public class Cancelado extends EstadoPedido {
         super(pedido);
     }
 
-    public void pagar(TarjetaDeCredito tarjetaDeCredito, Integer costoAPagar) throws NoSePuedePagarException {
+    public void pagar(TarjetaDeCredito tarjetaDeCredito, Integer montoAPagar) throws NoSePuedePagarException {
         throw new NoSePuedePagarException();
     }
 
