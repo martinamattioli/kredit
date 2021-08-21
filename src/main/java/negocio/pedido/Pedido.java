@@ -38,7 +38,7 @@ public class Pedido {
     // FIN - GETTER & SETTER
 
     public Integer calcularCosto() {
-        return componente.getPrecio() + tipoDeEnvio.calcularCosto();
+        return componente.getPrecio() + tipoDeEnvio.calcularCosto(this.componente);
     }
 
     public void pagar(Integer dinero) throws DineroInsuficienteException, IOException, NoSePuedePagarException {

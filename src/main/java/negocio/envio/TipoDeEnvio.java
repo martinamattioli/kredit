@@ -1,5 +1,7 @@
 package negocio.envio;
 
+import negocio.componente.Componente;
+
 public interface TipoDeEnvio {
-    Integer calcularCosto();
+    Integer calcularCosto(Componente componente);
 }
