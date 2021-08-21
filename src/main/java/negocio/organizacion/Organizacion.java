@@ -31,6 +31,18 @@ public class Organizacion {
         return instance;
     }
 
+    public List<Componente> getCatalogo() {
+        return catalogo;
+    }
+
+    public List<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public List<Pedido> getPedidos() {
+        return pedidos;
+    }
+
     public String getNombre() {
         return nombre;
     }

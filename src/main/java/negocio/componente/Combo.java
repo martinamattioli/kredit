@@ -6,8 +6,8 @@ import java.util.List;
 public class Combo extends Componente {
     private List<Componente> componentes;
 
-    public Combo(Integer precio, Integer anticipo, Foto foto, String caracteristicasGenerales) {
-        super(precio, anticipo, caracteristicasGenerales);
+    public Combo(String caracteristicasGenerales) {
+        super(caracteristicasGenerales);
         componentes = new ArrayList<Componente>();
     }
 
@@ -21,5 +21,9 @@ public class Combo extends Componente {
 
     public List<Componente> getComponentes() {
         return componentes;
+    }
+
+    public Integer getPrecio() {
+        return componentes.stream().mapToInt(Componente::getPrecio).sum();
     }
 }
