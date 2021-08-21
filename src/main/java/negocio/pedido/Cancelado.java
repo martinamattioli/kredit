@@ -6,7 +6,7 @@ public class Cancelado extends EstadoPedido {
         super(pedido);
     }
 
-    public void pagar(Integer dinero) throws NoSePuedePagarException {
+    public void pagar() throws NoSePuedePagarException {
         throw new NoSePuedePagarException();
     }
 

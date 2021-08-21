@@ -1,6 +1,7 @@
 package negocio.pedido;
 
 import negocio.cliente.Cliente;
+import negocio.cliente.Tarjeta;
 import negocio.componente.Componente;
 import negocio.envio.TipoDeEnvio;
 import negocio.notificador.Notificador;
@@ -41,8 +42,8 @@ public class Pedido {
         return componente.getPrecio() + tipoDeEnvio.calcularCosto();
     }
 
-    public void pagar(Integer dinero) throws DineroInsuficienteException, IOException, NoSePuedePagarException {
-        estadoPedido.pagar(dinero);
+    public void pagar() throws MontoInsuficienteException, IOException, NoSePuedePagarException {
+        estadoPedido.pagar();
     }
 
     public void entregar() throws IOException, NoSePuedeEntregarException {
@@ -55,5 +56,9 @@ public class Pedido {
 
     public void notificar(String asunto, String mensaje) throws IOException {
         notificador.notificar(cliente.getMail(), asunto, mensaje);
+    }
+
+    public Tarjeta getTarjetaDelCliente() {
+        return cliente.getTarjeta();
     }
 }

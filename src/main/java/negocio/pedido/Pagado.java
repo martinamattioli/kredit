@@ -1,7 +1,5 @@
 package negocio.pedido;
 
-import negocio.notificador.Notificador;
-
 import java.io.IOException;
 
 public class Pagado extends EstadoPedido {
@@ -10,7 +8,7 @@ public class Pagado extends EstadoPedido {
         super(pedido);
     }
 
-    public void pagar(Integer dinero) {
+    public void pagar() {
 
     }
 

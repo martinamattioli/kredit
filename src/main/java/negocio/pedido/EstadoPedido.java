@@ -1,8 +1,5 @@
 package negocio.pedido;
 
-import negocio.notificador.Notificador;
-import org.mockito.internal.matchers.Not;
-
 import java.io.IOException;
 
 public abstract class EstadoPedido {
@@ -13,7 +10,7 @@ public abstract class EstadoPedido {
         this.pedido = pedido;
     }
 
-    public abstract void pagar(Integer dinero) throws DineroInsuficienteException, IOException, NoSePuedePagarException;
+    public abstract void pagar() throws MontoInsuficienteException, IOException, NoSePuedePagarException;
 
     public abstract void entregar() throws IOException, NoSePuedeEntregarException;
 
