@@ -14,4 +14,9 @@ public class Pagado extends EstadoPedido {
         pedido.setEstadoPedido(new Entregado(pedido));
     }
 
+
+    public void cancelar() {
+        pedido.setEstadoPedido(new Cancelado(pedido));
+    }
+
 }

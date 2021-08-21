@@ -21,7 +21,7 @@ public class Organizacion {
         nombre = null;
         catalogo = new ArrayList<Componente>();
         clientes = new ArrayList<Cliente>();
-        pedidos = new ArrayList<Pedido>()
+        pedidos = new ArrayList<Pedido>();
     }
 
     public static Organizacion getInstance(){
@@ -59,7 +59,5 @@ public class Organizacion {
     public void registrarPedido(Cliente cliente, Componente componente, TipoDeEnvio tipoDeEnvio){
         pedidos.add(new Pedido(cliente, LocalDate.now(), componente, tipoDeEnvio));
     }
-
-
 
 }

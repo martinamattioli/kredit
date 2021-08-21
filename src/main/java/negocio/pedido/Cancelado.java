@@ -1,8 +1,8 @@
 package negocio.pedido;
 
-public class Entregado extends EstadoPedido {
+public class Cancelado extends EstadoPedido {
 
-    public Entregado(Pedido pedido) {
+    public Cancelado(Pedido pedido) {
         super(pedido);
     }
 
@@ -17,5 +17,4 @@ public class Entregado extends EstadoPedido {
     public void cancelar() {
 
     }
-
 }

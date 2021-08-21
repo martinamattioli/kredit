@@ -6,15 +6,17 @@ public class Confirmado extends EstadoPedido {
         super(pedido);
     }
 
-    public void pagar(Integer dinero) {
-        if (dinero == pedido.calcularCosto()) {
+    public void pagar(Integer dinero) throws DineroInsuficienteException {
+        if (dinero >= pedido.calcularCosto()) {
             pedido.setEstadoPedido(new Pagado(pedido));
-        } else {
-            // TODO: lanzar excepcion
-        }
+        } else throw new DineroInsuficienteException();
     }
 
     public void entregar() {
 
+    }
+
+    public void cancelar() {
+        pedido.setEstadoPedido(new Cancelado(pedido));
     }
 }

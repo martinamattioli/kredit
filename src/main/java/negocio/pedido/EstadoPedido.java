@@ -8,8 +8,9 @@ public abstract class EstadoPedido {
         this.pedido = pedido;
     }
 
-    public abstract void pagar(Integer dinero);
+    public abstract void pagar(Integer dinero) throws DineroInsuficienteException;
 
     public abstract void entregar();
 
+    public abstract void cancelar();
 }

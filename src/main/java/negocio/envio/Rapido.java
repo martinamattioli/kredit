@@ -3,6 +3,6 @@ package negocio.envio;
 public class Rapido implements TipoDeEnvio{
 
     public Integer calcularCosto() {
-        return 0;
+        return 200;
     }
 }

@@ -29,11 +29,15 @@ public class Pedido {
         return componente.getPrecio() + tipoDeEnvio.calcularCosto();
     }
 
-    public void pagar(Integer dinero) {
+    public void pagar(Integer dinero) throws DineroInsuficienteException {
         estadoPedido.pagar(dinero);
     }
 
     public void entregar(){
         estadoPedido.entregar();
+    }
+
+    public void cancelar(){
+        estadoPedido.cancelar();
     }
 }
