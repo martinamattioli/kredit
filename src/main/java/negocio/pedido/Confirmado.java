@@ -10,10 +10,10 @@ public class Confirmado extends EstadoPedido {
         super(pedido);
     }
 
-    public void pagar(TarjetaDeCredito tarjetaDeCredito, Integer costoAPagar)
+    public void pagar(TarjetaDeCredito tarjetaDeCredito, Integer monto)
             throws MontoInsuficienteException, IOException {
-        if (tarjetaDeCredito.tieneMontoSuficiente(costoAPagar)) {
-            tarjetaDeCredito.restarMonto(costoAPagar);
+        if (tarjetaDeCredito.tieneMontoSuficiente(monto)) {
+            tarjetaDeCredito.restarMonto(monto);
             pedido.setEstadoPedido(new Pagado(pedido));
             pedido.notificar("Pedido Pagado", "El pedido ha sido pagado.");
         } else throw new MontoInsuficienteException();
@@ -23,7 +23,7 @@ public class Confirmado extends EstadoPedido {
         throw new NoSePuedeEntregarException();
     }
 
-    public void cancelar(TarjetaDeCredito tarjetaDeCredito, Integer montoADevolver) throws IOException {
+    public void cancelar(TarjetaDeCredito tarjetaDeCredito, Integer monto) throws IOException {
         pedido.setEstadoPedido(new Cancelado(pedido));
         pedido.notificar("Pedido Cancelado", "El pedido ha sido cancelado.");
     }

@@ -10,7 +10,7 @@ public class Pagado extends EstadoPedido {
         super(pedido);
     }
 
-    public void pagar(TarjetaDeCredito tarjetaDeCredito, Integer costoAPagar) {
+    public void pagar(TarjetaDeCredito tarjetaDeCredito, Integer monto) {
 
     }
 
@@ -20,8 +20,8 @@ public class Pagado extends EstadoPedido {
     }
 
 
-    public void cancelar(TarjetaDeCredito tarjetaDeCredito, Integer montoADevolver) throws IOException {
-        tarjetaDeCredito.sumarMonto(montoADevolver);
+    public void cancelar(TarjetaDeCredito tarjetaDeCredito, Integer monto) throws IOException {
+        tarjetaDeCredito.sumarMonto(monto);
         pedido.setEstadoPedido(new Cancelado(pedido));
         pedido.notificar("Pedido Cancelado","El pedido ha sido cancelado");
     }

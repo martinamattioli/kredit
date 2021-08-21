@@ -12,10 +12,10 @@ public abstract class EstadoPedido {
         this.pedido = pedido;
     }
 
-    public abstract void pagar(TarjetaDeCredito tarjetaDeCredito, Integer costoAPagar) throws MontoInsuficienteException, IOException, NoSePuedePagarException;
+    public abstract void pagar(TarjetaDeCredito tarjetaDeCredito, Integer monto) throws MontoInsuficienteException, IOException, NoSePuedePagarException;
 
     public abstract void entregar() throws IOException, NoSePuedeEntregarException;
 
-    public abstract void cancelar(TarjetaDeCredito tarjetaDeCredito, Integer montoADevolver) throws IOException, NoSePuedeCancelarException;
+    public abstract void cancelar(TarjetaDeCredito tarjetaDeCredito, Integer monto) throws IOException, NoSePuedeCancelarException;
 
 }
