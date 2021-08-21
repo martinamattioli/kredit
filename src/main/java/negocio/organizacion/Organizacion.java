@@ -31,6 +31,8 @@ public class Organizacion {
         return instance;
     }
 
+    // INICIO - GETTER & SETTER
+
     public List<Componente> getCatalogo() {
         return catalogo;
     }
@@ -50,6 +52,8 @@ public class Organizacion {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
+    // FIN - GETTER & SETTER
 
     public void agregarProducto(Componente componente){
         catalogo.add(componente);
