@@ -12,13 +12,15 @@ public class Cliente {
     private String mail;
     private TipoDeDocumento tipoDeDocumento;
     private String nroDeDocumento;
+    private String direccion;
     private Ubicacion ubicacion;
 
-    public Cliente(String nombreCompleto, String mail, TipoDeDocumento tipoDeDocumento, String nroDeDocumento, Ubicacion ubicacion) {
+    public Cliente(String nombreCompleto, String mail, TipoDeDocumento tipoDeDocumento, String nroDeDocumento, String direccion, Ubicacion ubicacion) {
         this.nombreCompleto = nombreCompleto;
         this.mail = mail;
         this.tipoDeDocumento = tipoDeDocumento;
         this.nroDeDocumento = nroDeDocumento;
+        this.direccion = direccion;
         this.ubicacion = ubicacion;
     }
 
