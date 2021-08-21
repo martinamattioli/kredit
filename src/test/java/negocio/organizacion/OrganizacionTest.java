@@ -34,7 +34,7 @@ public class OrganizacionTest {
 
     @Test
     public void testAgregarUnProductoLoAgregaAlCatalogo(){
-        Producto producto = new Producto("Producto Test", 200, new Foto(), "Test", 10.5);
+        Producto producto = new Producto("Producto Test", "Test", 200, new Foto(), 10.5);
         organizacion.agregarProducto(producto);
         Assert.assertEquals(1, organizacion.getCatalogo().size());
     }
@@ -42,7 +42,7 @@ public class OrganizacionTest {
     @Test
     public void testRegistrarUnPedidoLoAgregaCorrectamenteALaOrganizacion(){
         Cliente cliente = new Cliente("Lionel Messi", "test@dds.com", TipoDeDocumento.DNI, "12345678", "Calle 123", null);
-        Componente componente = new Producto("Producto Test", 200, new Foto(), "Test", 5.6);
+        Componente componente = new Producto("Producto Test", "Test", 200, new Foto(), 5.6);
         TipoDeEnvio tipoDeEnvio = new Moto();
         organizacion.registrarPedido(cliente, componente, tipoDeEnvio);
         Assert.assertEquals(1, organizacion.getPedidos().size());

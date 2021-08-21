@@ -11,8 +11,8 @@ public class ProductoTest {
 
     @BeforeClass
     public static void init(){
-        producto = new Producto("Celular de alta gama", 200,
-                new Foto(), "Samsung S21", 0.4);
+        producto = new Producto("Samsung S21", "Celular de alta gama", 200,
+                new Foto(), 0.4);
     }
 
     @Test
@@ -21,8 +21,8 @@ public class ProductoTest {
     }
 
     @Test
-    public void testElModeloDelProductoCreadoEsSamsungS21(){
-        Assert.assertEquals("Samsung S21", producto.getModelo());
+    public void testElNombreDelProductoCreadoEsSamsungS21(){
+        Assert.assertEquals("Samsung S21", producto.getNombre());
     }
 
 }
