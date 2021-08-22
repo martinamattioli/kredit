@@ -2,12 +2,10 @@ package negocio.componente;
 
 public class Producto extends Componente {
     private Integer precio;
-    private Foto foto;
     private Integer peso;
 
-    public Producto(String nombre, String caracteristicasGenerales, Integer precio, Foto foto, Integer peso) {
-        super(nombre, caracteristicasGenerales);
-        this.foto = foto;
+    public Producto(String nombre, String caracteristicasGenerales, Foto foto, Integer precio, Integer peso) {
+        super(nombre, caracteristicasGenerales, foto);
         this.precio = precio;
         this.peso = peso;
     }

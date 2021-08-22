@@ -6,8 +6,8 @@ import java.util.List;
 public class Combo extends Componente {
     private List<Componente> componentes;
 
-    public Combo(String nombre, String caracteristicasGenerales) {
-        super(nombre, caracteristicasGenerales);
+    public Combo(String nombre, String caracteristicasGenerales, Foto foto) {
+        super(nombre, caracteristicasGenerales, foto);
         componentes = new ArrayList<Componente>();
     }
 

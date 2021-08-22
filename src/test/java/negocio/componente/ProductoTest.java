@@ -11,8 +11,8 @@ public class ProductoTest {
 
     @BeforeClass
     public static void init(){
-        producto = new Producto("Samsung S21", "Celular de alta gama", 200,
-                new Foto(), 4);
+        producto = new Producto("Samsung S21", "Celular de alta gama",
+                new Foto(), 200,  4);
     }
 
     @Test

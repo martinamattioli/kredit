@@ -15,10 +15,8 @@ public class CatalogoTest {
     @BeforeClass
     public static void init(){
         catalogo = new Catalogo();
-        televisor = new Producto("Lg 55 4k", "Televisor", 300,
-                    new Foto(), 10);
-        celular = new Producto("Samsung S21", "Celular de alta gama", 100,
-                    new Foto(), 4);
+        televisor = new Producto("Lg 55 4k", "Televisor", new Foto(), 300, 10);
+        celular = new Producto("Samsung S21", "Celular de alta gama", new Foto(),100,4);
         catalogo.agregar(celular);
         catalogo.agregar(televisor);
     }

@@ -12,14 +12,16 @@ public class MotoTest {
     @Test
     public void testCalcularCostoEsIgualA150(){
         Moto moto = new Moto();
-        Componente componente = new Producto("Modelo 123", "Unas caracteristicas", 200, new Foto(), 123);
+        Componente componente = new Producto("Modelo 123", "Unas caracteristicas",
+                new Foto(),200,  123);
         Assert.assertEquals(150, moto.calcularCosto(componente.getPeso(), Ubicacion.CABA).intValue());
     }
 
     @Test
     public void testSiElPesoEsMayorA200CalcularCostoEsElDobleDelPeso(){
         Moto moto = new Moto();
-        Componente componente = new Producto("Modelo 220", "Unas caracteristicas", 200, new Foto(), 220);
+        Componente componente = new Producto("Modelo 220", "Unas caracteristicas",
+                new Foto(),200,   220);
         Assert.assertEquals(440, moto.calcularCosto(componente.getPeso(), Ubicacion.CABA).intValue());
     }
 }
