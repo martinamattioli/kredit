@@ -12,6 +12,8 @@ import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import java.io.IOException;
+
 public class OrganizacionTest {
 
     static Organizacion organizacion;
@@ -41,7 +43,7 @@ public class OrganizacionTest {
     }
 
     @Test
-    public void testRegistrarUnPedidoLoAgregaCorrectamenteALaOrganizacion(){
+    public void testRegistrarUnPedidoLoAgregaCorrectamenteALaOrganizacion() throws IOException {
         Cliente cliente = new Cliente("Lionel Messi", "test@dds.com", TipoDeDocumento.DNI, "12345678", "Calle 123", null, Ubicacion.GRAN_BSAS);
         Componente componente = new Producto("Producto Test", "Test",  new Foto(), 200, 5);
         TipoDeEnvio tipoDeEnvio = new Moto();

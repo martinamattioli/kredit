@@ -6,8 +6,9 @@ import java.io.IOException;
 
 public class Confirmado extends EstadoPedido {
 
-    public Confirmado(Pedido pedido) {
+    public Confirmado(Pedido pedido) throws IOException {
         super(pedido);
+        pedido.notificar("Pedido Confirmado", "El pedido ha sido confirmado.");
     }
 
     public void pagar(TarjetaDeCredito tarjetaDeCredito, Integer monto)

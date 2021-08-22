@@ -17,13 +17,13 @@ public class Pedido {
     private EstadoPedido estadoPedido;
     private Notificador notificador;
 
-    public Pedido(Cliente cliente, LocalDate fecha, Componente componente, TipoDeEnvio tipoDeEnvio) {
+    public Pedido(Cliente cliente, LocalDate fecha, Componente componente, TipoDeEnvio tipoDeEnvio) throws IOException {
         this.cliente = cliente;
         this.fecha = fecha;
         this.componente = componente;
         this.tipoDeEnvio = tipoDeEnvio;
-        this.estadoPedido = new Confirmado(this);
         this.notificador = new Notificador();
+        this.estadoPedido = new Confirmado(this);
     }
 
     // INICIO - GETTER & SETTER

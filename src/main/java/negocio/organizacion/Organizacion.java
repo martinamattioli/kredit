@@ -9,6 +9,7 @@ import negocio.componente.Componente;
 import negocio.envio.TipoDeEnvio;
 import negocio.pedido.Pedido;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
@@ -77,7 +78,7 @@ public class Organizacion {
                 nroDeDocumento, direccion, tarjetaDeCredito,ubicacion));
     }
 
-    public void registrarPedido(Cliente cliente, Componente componente, TipoDeEnvio tipoDeEnvio){
+    public void registrarPedido(Cliente cliente, Componente componente, TipoDeEnvio tipoDeEnvio) throws IOException {
         pedidos.add(new Pedido(cliente, LocalDate.now(), componente, tipoDeEnvio));
     }
 
