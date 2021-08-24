@@ -6,23 +6,19 @@ import java.io.IOException;
 
 public class Pagado extends EstadoPedido {
 
-    public Pagado(Pedido pedido) {
-        super(pedido);
-    }
-
-    public void pagar(TarjetaDeCredito tarjetaDeCredito, Integer monto) {
+    public void pagar(Pedido pedido, TarjetaDeCredito tarjetaDeCredito, Integer monto) {
 
     }
 
-    public void entregar() throws IOException {
-        pedido.setEstadoPedido(new Entregado(pedido));
+    public void entregar(Pedido pedido) throws IOException {
+        pedido.setEstadoPedido(new Entregado());
         pedido.notificar("Pedido Entregado","El pedido ha sido entregado");
     }
 
 
-    public void cancelar(TarjetaDeCredito tarjetaDeCredito, Integer monto) throws IOException {
+    public void cancelar(Pedido pedido, TarjetaDeCredito tarjetaDeCredito, Integer monto) throws IOException {
         tarjetaDeCredito.sumarMonto(monto);
-        pedido.setEstadoPedido(new Cancelado(pedido));
+        pedido.setEstadoPedido(new Cancelado());
         pedido.notificar("Pedido Cancelado","El pedido ha sido cancelado");
     }
 

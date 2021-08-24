@@ -1,13 +1,12 @@
 package negocio.organizacion;
 
 import negocio.catalogo.Catalogo;
-import negocio.cliente.Cliente;
-import negocio.cliente.TarjetaDeCredito;
-import negocio.cliente.TipoDeDocumento;
-import negocio.cliente.Ubicacion;
+import negocio.catalogo.RepositorioCatalogo;
+import negocio.cliente.*;
 import negocio.componente.Componente;
 import negocio.envio.TipoDeEnvio;
 import negocio.pedido.Pedido;
+import negocio.pedido.RepositorioPedido;
 
 import java.io.IOException;
 import java.time.LocalDate;
@@ -17,15 +16,15 @@ import java.util.List;
 public class Organizacion {
     private static Organizacion instance = null;
     private String nombre;
-    private Catalogo catalogo;
+    private List<Catalogo> catalogo;
     private List<Cliente> clientes;
     private List<Pedido> pedidos;
 
     private Organizacion(){
-        nombre = null;
-        catalogo = new Catalogo();
-        clientes = new ArrayList<Cliente>();
-        pedidos = new ArrayList<Pedido>();
+        nombre = "TechBuy";
+        catalogo = RepositorioCatalogo.getInstance().getCatalogos();
+        clientes = RepositorioCliente.getInstance().getClientes();
+        pedidos = RepositorioPedido.getInstance().getPedidos();
     }
 
     public static Organizacion getInstance(){
@@ -36,10 +35,6 @@ public class Organizacion {
     }
 
     // INICIO - GETTER & SETTER
-
-    public Catalogo getCatalogo() {
-        return catalogo;
-    }
 
     public List<Cliente> getClientes() {
         return clientes;
@@ -59,11 +54,11 @@ public class Organizacion {
 
     // FIN - GETTER & SETTER
 
-    public void agregarAlCatalogo(Componente componente){
+    public void agregarAlCatalogo(Catalogo catalogo, Componente componente){
         catalogo.agregar(componente);
     }
 
-    public void removerDelCatalogo(Componente componente){
+    public void removerDelCatalogo(Catalogo catalogo, Componente componente){
         catalogo.remover(componente);
     }
 
@@ -82,15 +77,15 @@ public class Organizacion {
         pedidos.add(new Pedido(cliente, LocalDate.now(), componente, tipoDeEnvio));
     }
 
-    public Componente buscarEnElCatalogoPorNombre(String nombre){
+    public Componente buscarEnElCatalogoPorNombre(Catalogo catalogo, String nombre){
         return catalogo.buscarPorNombre(nombre);
     }
 
-    public ArrayList<Componente> filtrarDelCatalogoPorPrecioMayorOIgual(Integer precio){
+    public ArrayList<Componente> filtrarDelCatalogoPorPrecioMayorOIgual(Catalogo catalogo, Integer precio){
         return catalogo.filtrarComponentesConPrecioMayorOIgual(precio);
     }
 
-    public ArrayList<Componente> filtrarDelCatalogoPorPrecioMenorOIgual(Integer precio){
+    public ArrayList<Componente> filtrarDelCatalogoPorPrecioMenorOIgual(Catalogo catalogo, Integer precio){
         return catalogo.filtrarComponentesConPrecioMenorOIgual(precio);
     }
 

@@ -1,14 +1,25 @@
 package negocio.cliente;
 
+import negocio.persistentEntity.PersistentEntity;
+
+import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import java.util.Date;
 
-public class TarjetaDeCredito {
+@Entity
+public class TarjetaDeCredito extends PersistentEntity {
     private String numero;
     private String titular;
     private Date fechaDeVencimiento;
+    @Enumerated(EnumType.STRING)
     private RedAsociada redAsociada;
     private Integer codigoDeSeguridad;
     private Integer monto;
+
+    public TarjetaDeCredito() {
+
+    }
 
     public TarjetaDeCredito(String titular, String numero, Integer codigoDeSeguridad,
                             Date fechaDeVencimiento, RedAsociada redAsociada, Integer monto) {

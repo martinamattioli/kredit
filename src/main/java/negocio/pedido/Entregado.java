@@ -4,19 +4,15 @@ import negocio.cliente.TarjetaDeCredito;
 
 public class Entregado extends EstadoPedido {
 
-    public Entregado(Pedido pedido) {
-        super(pedido);
-    }
-
-    public void pagar(TarjetaDeCredito tarjetaDeCredito, Integer monto) throws NoSePuedePagarException {
+    public void pagar(Pedido pedido, TarjetaDeCredito tarjetaDeCredito, Integer monto) throws NoSePuedePagarException {
         throw new NoSePuedePagarException();
     }
 
-    public void entregar() throws NoSePuedeEntregarException {
+    public void entregar(Pedido pedido) throws NoSePuedeEntregarException {
         throw new NoSePuedeEntregarException();
     }
 
-    public void cancelar(TarjetaDeCredito tarjetaDeCredito, Integer monto) throws NoSePuedeCancelarException {
+    public void cancelar(Pedido pedido, TarjetaDeCredito tarjetaDeCredito, Integer monto) throws NoSePuedeCancelarException {
         throw new NoSePuedeCancelarException();
     }
 

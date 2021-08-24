@@ -1,18 +1,33 @@
 package negocio.catalogo;
 
 import negocio.componente.Componente;
+import negocio.persistentEntity.PersistentEntity;
 
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class Catalogo {
+@Entity
+public class Catalogo extends PersistentEntity {
 
+    private String nombre;
+
+    @OneToMany
+    @JoinColumn(name="idCatalogo")
     private List<Componente> componentes;
 
-    public Catalogo() {
+    public Catalogo(String nombre) {
+        this.nombre = nombre;
         this.componentes = new ArrayList<Componente>();
+    }
+
+    public Catalogo() {
+
     }
 
     public void agregar(Componente componente){

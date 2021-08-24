@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence
+    http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="db" transaction-type="RESOURCE_LOCAL">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <class>negocio.catalogo.Catalogo</class>
+        <class>negocio.cliente.Cliente</class>
+        <class>negocio.cliente.TarjetaDeCredito</class>
+        <class>negocio.componente.Componente</class>
+        <class>negocio.componente.Producto</class>
+        <class>negocio.componente.Combo</class>
+        <class>negocio.envio.TipoDeEnvio</class>
+        <class>negocio.envio.Rapido</class>
+        <class>negocio.envio.Moto</class>
+        <class>negocio.envio.Correo</class>
+        <class>negocio.pedido.EstadoPedido</class>
+        <class>negocio.pedido.Confirmado</class>
+        <class>negocio.pedido.Pagado</class>
+        <class>negocio.pedido.Entregado</class>
+        <class>negocio.pedido.Cancelado</class>
+
+        <properties>
+
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver"/>
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/techbuy"/>
+            <property name="hibernate.connection.username" value="root"/>
+            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect"/>
+
+            <!--
+             <property name="hibernate.archive.autodetection" value="class"/>
+            <property name="hibernate.connection.driver_class" value="com.mysql.jdbc.Driver" />
+            <property name="hibernate.connection.url" value="jdbc:mysql://localhost:3306/proyectodds" />
+            <property name="hibernate.connection.username" value="root" />
+            <property name="hibernate.connection.password" value="131299" /> -->
+
+            <!-- property name="hibernate.connection.driver_class" value="org.hsqldb.jdbcDriver"/>
+            <property name="hibernate.connection.url" value="jdbc:hsqldb:mem:app-db"/>
+            <property name="hibernate.connection.username" value="sa"/>
+            <property name="hibernate.connection.password" value=""/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.HSQLDialect"/> -->
+
+
+            <property name="hibernate.show_sql" value="true"/>
+            <property name="hibernate.format_sql" value="true"/>
+            <property name="use_sql_comments" value="true"/>
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+
+    </persistence-unit>
+
+</persistence>

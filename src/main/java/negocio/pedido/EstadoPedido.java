@@ -1,21 +1,22 @@
 package negocio.pedido;
 
 import negocio.cliente.TarjetaDeCredito;
+import negocio.persistentEntity.PersistentEntity;
 
+import javax.persistence.Entity;
 import java.io.IOException;
 
-public abstract class EstadoPedido {
+@Entity
+public abstract class EstadoPedido extends PersistentEntity {
 
-    protected Pedido pedido;
+    public EstadoPedido() {
 
-    public EstadoPedido(Pedido pedido) {
-        this.pedido = pedido;
     }
 
-    public abstract void pagar(TarjetaDeCredito tarjetaDeCredito, Integer monto) throws MontoInsuficienteException, IOException, NoSePuedePagarException;
+    public abstract void pagar(Pedido pedido, TarjetaDeCredito tarjetaDeCredito, Integer monto) throws MontoInsuficienteException, IOException, NoSePuedePagarException;
 
-    public abstract void entregar() throws IOException, NoSePuedeEntregarException;
+    public abstract void entregar(Pedido pedido) throws IOException, NoSePuedeEntregarException;
 
-    public abstract void cancelar(TarjetaDeCredito tarjetaDeCredito, Integer monto) throws IOException, NoSePuedeCancelarException;
+    public abstract void cancelar(Pedido pedido, TarjetaDeCredito tarjetaDeCredito, Integer monto) throws IOException, NoSePuedeCancelarException;
 
 }

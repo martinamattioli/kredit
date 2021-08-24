@@ -1,6 +1,5 @@
 package negocio.catalogo;
 
-import negocio.componente.Foto;
 import negocio.componente.Producto;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -14,9 +13,9 @@ public class CatalogoTest {
 
     @BeforeClass
     public static void init(){
-        catalogo = new Catalogo();
-        televisor = new Producto("Lg 55 4k", "Televisor", new Foto(), 300, 10);
-        celular = new Producto("Samsung S21", "Celular de alta gama", new Foto(),100,4);
+        catalogo = new Catalogo("Tecnologia");
+        televisor = new Producto("Lg 55 4k", "Televisor", "", 300, 10);
+        celular = new Producto("Samsung S21", "Celular de alta gama", "",100,4);
         catalogo.agregar(celular);
         catalogo.agregar(televisor);
     }

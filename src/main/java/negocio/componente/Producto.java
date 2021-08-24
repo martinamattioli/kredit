@@ -1,13 +1,20 @@
 package negocio.componente;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Producto extends Componente {
     private Integer precio;
     private Integer peso;
 
-    public Producto(String nombre, String caracteristicasGenerales, Foto foto, Integer precio, Integer peso) {
+    public Producto(String nombre, String caracteristicasGenerales, String foto, Integer precio, Integer peso) {
         super(nombre, caracteristicasGenerales, foto);
         this.precio = precio;
         this.peso = peso;
+    }
+
+    public Producto() {
+
     }
 
     // INICIO - GETTER & SETTER

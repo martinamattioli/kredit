@@ -2,7 +2,7 @@ package negocio.envio;
 
 import negocio.cliente.Ubicacion;
 
-public class Correo implements TipoDeEnvio{
+public class Correo extends TipoDeEnvio{
 
     public Integer calcularCosto(Integer peso, Ubicacion ubicacion) {
         Integer costo;
